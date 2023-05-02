@@ -1,0 +1,140 @@
+/* Boton amarillo */
+  .btn-yellow { 
+    color: #087300; 
+    background-color: #FFD900; 
+    /* border-color: #FFD900;  */
+  } 
+   
+  .btn-yellow:hover, 
+  /* .btn-yellow:focus,  */
+  .btn-yellow:active, 
+  .btn-yellow.active, 
+  .open .dropdown-toggle.btn-yellow { 
+    color: #087300; 
+    background-color: #FFBB00; 
+    /* border-color: #FFD900;  */
+  } 
+   
+  .btn-yellow:active, 
+  .btn-yellow.active, 
+  .open .dropdown-toggle.btn-yellow { 
+    background-image: none; 
+  } 
+   
+  .btn-yellow.disabled, 
+  .btn-yellow[disabled], 
+  fieldset[disabled] .btn-yellow, 
+  .btn-yellow.disabled:hover, 
+  .btn-yellow[disabled]:hover, 
+  fieldset[disabled] .btn-yellow:hover, 
+  .btn-yellow.disabled:focus, 
+  .btn-yellow[disabled]:focus, 
+  fieldset[disabled] .btn-yellow:focus, 
+  .btn-yellow.disabled:active, 
+  .btn-yellow[disabled]:active, 
+  fieldset[disabled] .btn-yellow:active, 
+  .btn-yellow.disabled.active, 
+  .btn-yellow[disabled].active, 
+  fieldset[disabled] .btn-yellow.active { 
+    background-color: #FFD900; 
+    /* border-color: #FFD900;  */
+  } 
+   
+  .btn-yellow .badge { 
+    color: #FFD900; 
+    background-color: #087300; 
+  }
+
+/* Boton verde */
+  .btn-green { 
+    color: #FFFFFF; 
+    background-color: #2EA903; 
+    /* border-color: #2EA903;  */
+  } 
+   
+  .btn-green:hover, 
+  /* .btn-green:focus,  */
+  .btn-green:active, 
+  .btn-green.active, 
+  .open .dropdown-toggle.btn-green { 
+    color: #FFFFFF; 
+    background-color: #0A8F00; 
+    /* border-color: #2EA903;  */
+  } 
+   
+  .btn-green:active, 
+  .btn-green.active, 
+  .open .dropdown-toggle.btn-green { 
+    background-image: none; 
+  } 
+   
+  .btn-green.disabled, 
+  .btn-green[disabled], 
+  fieldset[disabled] .btn-green, 
+  .btn-green.disabled:hover, 
+  .btn-green[disabled]:hover, 
+  fieldset[disabled] .btn-green:hover, 
+  .btn-green.disabled:focus, 
+  .btn-green[disabled]:focus, 
+  fieldset[disabled] .btn-green:focus, 
+  .btn-green.disabled:active, 
+  .btn-green[disabled]:active, 
+  fieldset[disabled] .btn-green:active, 
+  .btn-green.disabled.active, 
+  .btn-green[disabled].active, 
+  fieldset[disabled] .btn-green.active { 
+    background-color: #2EA903; 
+    /* border-color: #2EA903;  */
+  } 
+   
+  .btn-green .badge { 
+    color: #2EA903; 
+    background-color: #FFFFFF; 
+  }
+
+/* Boton rojo */
+  .btn-red { 
+    color: #FFFFFF; 
+    background-color: #D81208; 
+    /* border-color: #D81208;  */
+  } 
+   
+  .btn-red:hover, 
+  /* .btn-red:focus,  */
+  .btn-red:active, 
+  .btn-red.active, 
+  .open .dropdown-toggle.btn-red { 
+    color: #FFFFFF; 
+    background-color: #B80900; 
+    /* border-color: #D81208;  */
+  } 
+   
+  .btn-red:active, 
+  .btn-red.active, 
+  .open .dropdown-toggle.btn-red { 
+    background-image: none; 
+  } 
+   
+  .btn-red.disabled, 
+  .btn-red[disabled], 
+  fieldset[disabled] .btn-red, 
+  .btn-red.disabled:hover, 
+  .btn-red[disabled]:hover, 
+  fieldset[disabled] .btn-red:hover, 
+  .btn-red.disabled:focus, 
+  .btn-red[disabled]:focus, 
+  fieldset[disabled] .btn-red:focus, 
+  .btn-red.disabled:active, 
+  .btn-red[disabled]:active, 
+  fieldset[disabled] .btn-red:active, 
+  .btn-red.disabled.active, 
+  .btn-red[disabled].active, 
+  fieldset[disabled] .btn-red.active { 
+    background-color: #D81208; 
+    /* border-color: #D81208;  */
+  } 
+   
+  .btn-red .badge { 
+    color: #D81208; 
+    background-color: #FFFFFF; 
+  }
