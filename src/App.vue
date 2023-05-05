@@ -1,6 +1,8 @@
 <script setup>
   import { ref, onMounted } from "vue";
   import { RouterLink, RouterView } from 'vue-router';
+  import { useRouter } from 'vue-router'
+  const router = useRouter()
   import BotonUsuarioActual from './components/BotonUsuarioActual.vue';
   
   import variableSesion from "./variablesSesion.js";
@@ -11,20 +13,23 @@
   });
 </script>
 
+
 <template>
   <div class="d-flex flex-column expandMinHeight">
-  <header class="header d-flex justify-content-between">
-    <img class="logo" src="./assets/trackpals_logo.png" />
-    <div v-if="!varSesion.getUsuarioActual()">
-      <nav>
-        <RouterLink to="/registro" class="btn btn-yellow btn-lg m-4">Registro</RouterLink>
-        <RouterLink to="/login" class="btn btn-yellow btn-lg m-4">Login</RouterLink>
-      </nav>
-    </div>
-    <BotonUsuarioActual v-else></BotonUsuarioActual>
-  </header>
+    <header class="header d-flex justify-content-between">
+      <img class="logo" src="./assets/trackpals_logo.png" @click="router.push((!varSesion.getUsuarioActual()) ? '/' : '/inicio')" />
+      <div v-if="!varSesion.getUsuarioActual()">
+        <nav>
+          <RouterLink to="/registro" class="btn btn-yellow btn-lg m-4"
+            v-if="router.currentRoute.value.path != '/registro'">Registro</RouterLink>
+          <RouterLink to="/login" class="btn btn-yellow btn-lg m-4"
+            v-if="router.currentRoute.value.path != '/login'">Login</RouterLink>
+        </nav>
+      </div>
+      <BotonUsuarioActual v-else></BotonUsuarioActual>
+    </header>
 
-  <!-- Componente en el que se carga la vista de la ruta correspondiente -->
+    <!-- Componente en el que se carga la vista de la ruta correspondiente -->
     <div class="main">
       <RouterView />
     </div>
@@ -36,6 +41,7 @@
     </footer>
   </div>
 </template>
+
 
 <style>
   body {

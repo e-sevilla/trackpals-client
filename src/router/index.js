@@ -4,6 +4,7 @@ import LoginView from '../views/LoginView.vue'
 import RegistroView from '../views/RegistroView.vue'
 import InicioView from '../views/InicioView.vue'
 import ExcursionView from '../views/ExcursionView.vue'
+import PerfilView from '../views/PerfilView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,10 +30,18 @@ const router = createRouter({
       component: InicioView
     },
     {
-      path: "/excursion",
+      path: "/excursion/:id",
       name: "excursion",
-      component: ExcursionView
-    }
+      component: ExcursionView,
+      props: true
+    },
+    {
+      path: "/perfil/:id",
+      name: "perfil",
+      component: PerfilView,
+      props: true
+    },
+
     // {
     //   path: '/about',
     //   name: 'about',
@@ -42,6 +51,16 @@ const router = createRouter({
     //   component: () => import('../views/AboutView.vue')
     // }
   ]
+})
+
+// Impedir navegacion sin estar logeado
+import variableSesion from "../variablesSesion.js";
+const varSesion = variableSesion();
+
+router.beforeEach(async (to, from) => {
+  if ( varSesion.getUsuarioActual() == null && to.path !== "/" && to.path !== "/login" && to.path !== "/registro") {
+    return "/";
+  }
 })
 
 export default router

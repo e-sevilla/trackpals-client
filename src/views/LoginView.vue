@@ -20,7 +20,7 @@
     let usuario = await fetchMeths.post(fetchMeths.urlBase + "/usuarios/login", usuarioDto)
     if (usuario) {
       varSesion.setUsuarioActual(usuario);
-      router.push("/inicio").then(() => { router.go() });
+      router.push("/inicio")//.then(() => { router.go() });
     }
   };
 
@@ -30,17 +30,19 @@
 
 
 <template>
-  <form @submit.prevent="login">
-    <label>
-      Usuario
-      <input type="text" v-model="nombre" />
-    </label>
-    <label>
-      Contraseña
-      <input type="password" v-model="contrasenia" />
-    </label>
-    <button class="btn btn-green" type="submit">Entrar</button>
-  </form>
+  <div class="d-flex justify-content-center my-5">
+    <form class="d-flex flex-column" @submit.prevent="login">
+      <label class="form-label my-2">
+        <div class="my-2">Usuario</div>
+        <input type="text" class="form-control" v-model="nombre" required />
+      </label>
+      <label class="form-label my-3">
+        <div class="my-2">Contraseña</div>
+        <input type="password" class="form-control" v-model="contrasenia" required />
+      </label>
+      <button class="btn btn-green my-4" type="submit">Entrar</button>
+    </form>
+  </div>
 </template>
 
 
