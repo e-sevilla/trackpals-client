@@ -30,16 +30,18 @@
   <div class="d-flex flex-column align-items-center mx-5">
     <div class="d-flex justify-content-evenly w-100">
       <button class="btn btn-green m-5 btn-lg w-25" :class="(!mostrarPrivadas) ? 'active' : ''"
-        @click="mostrarPrivadas = false">Públicas</button>
+        @click="mostrarPrivadas = false">Excursiones públicas</button>
       <button class="btn btn-green m-5 btn-lg w-25" :class="(mostrarPrivadas) ? 'active' : ''"
-        @click="mostrarPrivadas = true">Privadas</button>
+        @click="mostrarPrivadas = true">Excursiones privadas</button>
     </div>
     <div class="w-75">
       <template v-for="excursion in excursiones">
-        <ExcursionCard :excursion="excursion"
-          v-if="!mostrarPrivadas && !excursion.privada"></ExcursionCard>
-        <ExcursionCard :excursion="excursion"
-          v-else-if="mostrarPrivadas && excursion.privada && (excursion.creador.id == usuarioActual.id || excursion.creador.id in usuarioActual.idsAmigos)"></ExcursionCard>
+        <template v-if="excursion.fecha >= Date.parse(new Date)">
+          <ExcursionCard :excursion="excursion"
+            v-if="!mostrarPrivadas && !excursion.privada"></ExcursionCard>
+          <ExcursionCard :excursion="excursion"
+            v-else-if="mostrarPrivadas && excursion.privada && (excursion.creador.id == usuarioActual.id || excursion.creador.id in usuarioActual.idsAmigos)"></ExcursionCard>
+        </template>
       </template>
     </div>
   </div>

@@ -24,7 +24,7 @@
 </template>
 
 
-<style>
+<style scoped>
   .user-mini-photo {
     padding: 8px;
     height: v-bind(medida);

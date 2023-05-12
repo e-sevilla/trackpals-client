@@ -5,6 +5,7 @@ import RegistroView from '../views/RegistroView.vue'
 import InicioView from '../views/InicioView.vue'
 import ExcursionView from '../views/ExcursionView.vue'
 import PerfilView from '../views/PerfilView.vue'
+import NuevaExcursionView from '../views/NuevaExcursionView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
       name: "perfil",
       component: PerfilView,
       props: true
+    },
+    {
+      path: "/excursion/nueva",
+      name: "nueva-excursion",
+      component: NuevaExcursionView
     },
 
     // {
