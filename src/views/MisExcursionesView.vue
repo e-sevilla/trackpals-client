@@ -1,18 +1,15 @@
 <script setup>
   import { ref, onMounted } from "vue";
   import ExcursionCard from "../components/ExcursionCard.vue"
-  import { useRouter } from 'vue-router';
-  const router = useRouter();
-
+  
   import fetchMethods from "../fetchMethods.js";
   const fetchMeths = fetchMethods();
 
   import variableSesion from "../variablesSesion.js";
   const varSesion = variableSesion();
-  let usuarioActual = varSesion.getUsuarioActual();
 
   const excursiones = ref([]);
-  const mostrarPrivadas = ref(false);
+  const mostrarPasadas = ref(false);
 
   const obtenerExcursiones = async () => {
     excursiones.value = await fetchMeths.get(fetchMeths.urlBase + "/excursiones");
@@ -26,20 +23,21 @@
 
 
 <template>
+  <div class="fs-2 fw-bold text-center m-3">Mis excursiones</div>
   <div class="d-flex flex-column align-items-center mx-5 my-2">
     <div class="d-flex justify-content-evenly w-100">
-      <button class="btn btn-green m-4 btn-lg w-25" :class="(!mostrarPrivadas) ? 'active' : ''"
-        @click="mostrarPrivadas = false">Excursiones públicas</button>
-      <button class="btn btn-green m-4 btn-lg w-25" :class="(mostrarPrivadas) ? 'active' : ''"
-        @click="mostrarPrivadas = true">Excursiones privadas</button>
+      <button class="btn btn-green m-3 btn-lg w-25" :class="(!mostrarPasadas) ? 'active' : ''"
+        @click="mostrarPasadas = false">Excursiones por hacer</button>
+      <button class="btn btn-green m-3 btn-lg w-25" :class="(mostrarPasadas) ? 'active' : ''"
+        @click="mostrarPasadas = true">Excursiones pasadas</button>
     </div>
     <div class="w-75">
       <template v-for="excursion in excursiones">
-        <template v-if="excursion.fecha >= Date.parse(new Date)">
+        <template v-if="varSesion.getUsuarioActual().idsExcursionesApuntado.includes(excursion.id)">
           <ExcursionCard :excursion="excursion"
-            v-if="!mostrarPrivadas && !excursion.privada"></ExcursionCard>
+            v-if="!mostrarPasadas && (excursion.fecha >= Date.parse(new Date))"></ExcursionCard>
           <ExcursionCard :excursion="excursion"
-            v-else-if="mostrarPrivadas && excursion.privada && (excursion.creador.id == usuarioActual.id || usuarioActual.idsAmigos.includes(excursion.creador.id))"></ExcursionCard>
+            v-else-if="mostrarPasadas && (excursion.fecha < Date.parse(new Date))"></ExcursionCard>
         </template>
       </template>
     </div>
@@ -48,5 +46,5 @@
 
 
 <style>
-  
+
 </style>

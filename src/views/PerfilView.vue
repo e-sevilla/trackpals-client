@@ -1,6 +1,6 @@
 <script setup>
   // PROPS
-  defineProps({
+  const props = defineProps({
     id: {
       type: String,
       required: true

@@ -1,4 +1,5 @@
 export default function commonMethods() {
+
   const datetimeToMillis = (datestring, timestring = null) => {
     let date = new Date(datestring)
     if (timestring){
@@ -63,9 +64,14 @@ export default function commonMethods() {
     return (dirBBDD) ? dirBBDD.split("::").join("\n") : null;
   };
 
+  const dirBBDDToDirMap = (dirBBDD) => {
+    return dirBBDD.split("::").join("<br/>");
+  };
+
   return { 
     datetimeToMillis, millisToDatestring, millisToTimestring,
     encodeFileAsBase64URL, getGpxContent,
-    htmlToDirBBDD, dirBBDDToDir
+    htmlToDirBBDD, dirBBDDToDir, dirBBDDToDirMap
   };
+
 }

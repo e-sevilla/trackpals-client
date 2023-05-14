@@ -6,6 +6,9 @@ import InicioView from '../views/InicioView.vue'
 import ExcursionView from '../views/ExcursionView.vue'
 import PerfilView from '../views/PerfilView.vue'
 import NuevaExcursionView from '../views/NuevaExcursionView.vue'
+import MisExcursionesView from '../views/MisExcursionesView.vue'
+import MisAmigosView from '../views/MisAmigosView.vue'
+import BuscarUsuariosView from '../views/BuscarUsuariosView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,19 +50,25 @@ const router = createRouter({
       name: "nueva-excursion",
       component: NuevaExcursionView
     },
-
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    {
+      path: "/mis-excursiones",
+      name: "mis-excursiones",
+      component: MisExcursionesView
+    },
+    {
+      path: "/mis-amigos",
+      name: "mis-amigos",
+      component: MisAmigosView
+    },
+    {
+      path: "/buscar-usuarios",
+      name: "buscar-usuarios",
+      component: BuscarUsuariosView
+    },
   ]
 })
 
-// Impedir navegacion sin estar logeado
+// Impedir navegacion si no estas logeado
 import variableSesion from "../variablesSesion.js";
 const varSesion = variableSesion();
 
@@ -68,5 +77,6 @@ router.beforeEach(async (to, from) => {
     return "/";
   }
 })
+
 
 export default router

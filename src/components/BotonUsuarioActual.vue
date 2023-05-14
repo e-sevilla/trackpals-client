@@ -7,7 +7,7 @@
 
   const cerrarSesion = () => {
     varSesion.clearUsuarioActual();
-    router.push("/").then(() => { router.go() });
+    router.push("/")//.then(() => { router.go() });
   }
 </script>
 
@@ -19,8 +19,9 @@
     <ul class="dropdown-menu bg-green">
       <li><span class="dropdown-item-text text-center fw-bold fs-5">{{ varSesion.getUsuarioActual().nombre }}</span></li>
       <li><RouterLink :to="'/perfil/' + varSesion.getUsuarioActual().id" class="dropdown-item">Ver perfil</RouterLink></li>
-      <li><RouterLink to="/misexcursiones" class="dropdown-item">Ver mis excursiones</RouterLink></li>
-      <li><RouterLink to="/misamigos" class="dropdown-item">Ver mis amigos</RouterLink></li>
+      <li><RouterLink to="/mis-excursiones" class="dropdown-item">Ver mis excursiones</RouterLink></li>
+      <li><RouterLink to="/mis-amigos" class="dropdown-item">Ver mis amigos</RouterLink></li>
+      <li><RouterLink to="/buscar-usuarios" class="dropdown-item">Buscar usuarios</RouterLink></li>
       <li><hr class="dropdown-divider"></li>
       <li><a class="dropdown-item" href="#" @click="cerrarSesion">Cerrar sesión</a></li>
     </ul>

@@ -1,4 +1,5 @@
 export default function fetchMethods() {
+
   const urlBase = "http://localhost:8080";
 
   const get = async (url) => {
@@ -35,4 +36,5 @@ export default function fetchMethods() {
   };
 
   return { urlBase, get, post };
+  
 }

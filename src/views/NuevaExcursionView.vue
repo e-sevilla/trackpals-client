@@ -51,8 +51,13 @@
     else if (opcionRuta.value != -2) {
       excursion.ruta = { id: listaRutas.value[opcionRuta.value].id }
     }
-    await fetchMeths.post(fetchMeths.urlBase + "/excursiones", excursion);
-    router.push("/inicio");
+    let excursionesApuntado = await fetchMeths.post(fetchMeths.urlBase + "/excursiones", excursion);
+    if (excursionesApuntado) {
+      let usuarioActual = varSesion.getUsuarioActual();
+      usuarioActual.idsExcursionesApuntado = excursionesApuntado;
+      varSesion.setUsuarioActual(usuarioActual);
+      router.push("/inicio");
+    }
   };
 
   const getRutas = async () => {
@@ -131,7 +136,7 @@
 
 
 <template>
-  <div class="m-4 p-4 bg-warning bg-opacity-25">
+  <div class="m-4 p-4 bg-warning bg-opacity-25 rounded-3">
     <form @submit.prevent="crearExcursion">
       <div class="row">
         <!-- Foto -->

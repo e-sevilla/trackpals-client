@@ -1,5 +1,4 @@
 <script setup>
-  import { ref, onMounted } from "vue";
   import { RouterLink, RouterView } from 'vue-router';
   import { useRouter } from 'vue-router'
   const router = useRouter()
@@ -7,10 +6,6 @@
   
   import variableSesion from "./variablesSesion.js";
   const varSesion = variableSesion();
-
-  onMounted(() => {
-    
-  });
 </script>
 
 
@@ -54,6 +49,7 @@
   }
   textarea {
     resize: none;
+    cursor: inherit;
   }
   .expandMinHeight {
     min-height: calc(100vh - 100px);
