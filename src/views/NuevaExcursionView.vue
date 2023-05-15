@@ -137,7 +137,7 @@
 
 <template>
   <div class="m-4 p-4 bg-warning bg-opacity-25 rounded-3">
-    <form @submit.prevent="crearExcursion">
+    <form class="position-relative" @submit.prevent="crearExcursion">
       <div class="row">
         <!-- Foto -->
         <div class="col-4">
@@ -248,6 +248,6 @@
     width: 60vw;
     position: absolute;
     bottom: 0;
-    right: 80px;
+    right: 0;
   }
 </style>

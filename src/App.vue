@@ -24,7 +24,7 @@
       <div v-else class="d-flex">
         <RouterLink to="/excursion/nueva" class="btn btn-yellow btn-lg m-4"
           v-if="router.currentRoute.value.path != '/excursion/nueva'">Crear excursión</RouterLink>
-        <BotonUsuarioActual></BotonUsuarioActual>
+        <BotonUsuarioActual :key="varSesion.getUsuarioActual().foto"></BotonUsuarioActual>
       </div>
     </header>
 
@@ -46,6 +46,7 @@
   body {
     padding-top: 100px;
     background-color: rgb(252, 252, 206);
+    min-width: 1000px;
   }
   textarea {
     resize: none;

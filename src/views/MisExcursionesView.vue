@@ -12,7 +12,7 @@
   const mostrarPasadas = ref(false);
 
   const obtenerExcursiones = async () => {
-    excursiones.value = await fetchMeths.get(fetchMeths.urlBase + "/excursiones");
+    excursiones.value = await fetchMeths.post(fetchMeths.urlBase + "/excursiones/mias", varSesion.getUsuarioActual().idsExcursionesApuntado);
     excursiones.value = excursiones.value.sort((a, b) => a.fecha - b.fecha);
   };
 
@@ -33,12 +33,10 @@
     </div>
     <div class="w-75">
       <template v-for="excursion in excursiones">
-        <template v-if="varSesion.getUsuarioActual().idsExcursionesApuntado.includes(excursion.id)">
-          <ExcursionCard :excursion="excursion"
-            v-if="!mostrarPasadas && (excursion.fecha >= Date.parse(new Date))"></ExcursionCard>
-          <ExcursionCard :excursion="excursion"
-            v-else-if="mostrarPasadas && (excursion.fecha < Date.parse(new Date))"></ExcursionCard>
-        </template>
+        <ExcursionCard :excursion="excursion"
+          v-if="!mostrarPasadas && (excursion.fecha >= Date.parse(new Date))"></ExcursionCard>
+        <ExcursionCard :excursion="excursion"
+          v-else-if="mostrarPasadas && (excursion.fecha < Date.parse(new Date))"></ExcursionCard>
       </template>
     </div>
   </div>

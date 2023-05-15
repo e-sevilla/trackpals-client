@@ -6,6 +6,7 @@ import InicioView from '../views/InicioView.vue'
 import ExcursionView from '../views/ExcursionView.vue'
 import PerfilView from '../views/PerfilView.vue'
 import NuevaExcursionView from '../views/NuevaExcursionView.vue'
+import MiPerfilView from '../views/MiPerfilView.vue'
 import MisExcursionesView from '../views/MisExcursionesView.vue'
 import MisAmigosView from '../views/MisAmigosView.vue'
 import BuscarUsuariosView from '../views/BuscarUsuariosView.vue'
@@ -49,6 +50,11 @@ const router = createRouter({
       path: "/excursion/nueva",
       name: "nueva-excursion",
       component: NuevaExcursionView
+    },
+    {
+      path: "/mi-perfil",
+      name: "mi-perfil",
+      component: MiPerfilView
     },
     {
       path: "/mis-excursiones",

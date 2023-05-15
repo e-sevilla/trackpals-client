@@ -1,8 +1,6 @@
 <script setup>
   import { ref, onMounted } from "vue";
   import ExcursionCard from "../components/ExcursionCard.vue"
-  import { useRouter } from 'vue-router';
-  const router = useRouter();
 
   import fetchMethods from "../fetchMethods.js";
   const fetchMeths = fetchMethods();
@@ -35,12 +33,10 @@
     </div>
     <div class="w-75">
       <template v-for="excursion in excursiones">
-        <template v-if="excursion.fecha >= Date.parse(new Date)">
-          <ExcursionCard :excursion="excursion"
-            v-if="!mostrarPrivadas && !excursion.privada"></ExcursionCard>
-          <ExcursionCard :excursion="excursion"
-            v-else-if="mostrarPrivadas && excursion.privada && (excursion.creador.id == usuarioActual.id || usuarioActual.idsAmigos.includes(excursion.creador.id))"></ExcursionCard>
-        </template>
+        <ExcursionCard :excursion="excursion"
+          v-if="!mostrarPrivadas && !excursion.privada"></ExcursionCard>
+        <ExcursionCard :excursion="excursion"
+          v-else-if="mostrarPrivadas && excursion.privada && (excursion.creador.id == usuarioActual.id || usuarioActual.idsAmigos.includes(excursion.creador.id))"></ExcursionCard>
       </template>
     </div>
   </div>
