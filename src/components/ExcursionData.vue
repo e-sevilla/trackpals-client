@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, onMounted } from "vue";
+  import { onMounted } from "vue";
   import commonMethods from "../commonMethods.js";
   const commonMeths = commonMethods();
 
@@ -64,7 +64,7 @@
 <template>
   <div class="row my-2">
     <div class="col-4">
-      <div id="map" class="map"></div>
+      <div id="map" class="map z-0"></div>
     </div>
     <div class="col-8">
       <div class="fw-bolder">Descripción:</div>

@@ -181,7 +181,7 @@
               <div class="col-12 mx-3">También puedes introducir en el buscador una coordenada en formato "latitud,longitud".</div>
               <div class="col-4 mx-4 my-2">
                 <div class="row">
-                  <div class="col-12" id="map"></div> <!-- Mapa -->
+                  <div class="col-12 z-0" id="map"></div> <!-- Mapa -->
                   <button class="btn btn-green my-2" type="button" @click="limpiarMapa">Limpiar mapa</button>
                 </div>
               </div>
@@ -220,9 +220,9 @@
         </div>
       </div>
       <!-- Botones -->
-      <div class="d-flex flex-row justify-content-end buttons-up">
-        <RouterLink to="/inicio" class="btn btn-red col-2 m-2">Cancelar</RouterLink>
-        <button class="btn btn-green col-2 m-2" type="submit">Crear</button>
+      <div class="buttons-up">
+        <RouterLink to="/inicio" class="btn btn-red col-2 m-2 button-width">Cancelar</RouterLink>
+        <button class="btn btn-green col-2 m-2 button-width" type="submit">Crear</button>
       </div>
     </form>
   </div>
@@ -245,9 +245,11 @@
     width: 100%;
   }
   .buttons-up {
-    width: 60vw;
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+  .button-width {
+    width: 120px;
   }
 </style>

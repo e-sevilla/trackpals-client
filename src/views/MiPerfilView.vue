@@ -41,9 +41,8 @@
     }
     let usuarioActualizado = await fetchMeths.post(fetchMeths.urlBase + "/usuarios/perfil", usuarioModificado);
     if (usuarioActualizado) {
-      // usuarioActual = usuarioActualizado;
       varSesion.setUsuarioActual(usuarioActualizado);
-      router.push("/inicio")//.then(() => { router.go() });
+      router.push("/inicio");
     }
   };
   
@@ -88,8 +87,8 @@
       </div>
       <!-- Botones -->
       <div class="d-flex flex-row justify-content-end buttons-up">
-        <RouterLink to="/inicio" class="btn btn-red col-2 m-2">Cancelar</RouterLink>
-        <button class="btn btn-green col-2 m-2" type="submit">Guardar</button>
+        <RouterLink to="/inicio" class="btn btn-red col-2 m-2 button-width">Cancelar</RouterLink>
+        <button class="btn btn-green col-2 m-2 button-width" type="submit">Guardar</button>
       </div>
     </form>
   </div>
@@ -106,9 +105,11 @@
     object-fit: cover;
   }
   .buttons-up {
-    width: 60vw;
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+  .button-width {
+    width: 120px;
   }
 </style>

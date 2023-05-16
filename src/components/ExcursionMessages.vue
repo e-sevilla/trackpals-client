@@ -36,7 +36,7 @@
 <template>
   <form class="my-3 z-0" @submit.prevent="crearMensaje">
     <div class="input-group">
-      <input class="form-control" type="text" placeholder="Escribe aquí tu mensaje..." v-model="texto" required />
+      <input class="form-control z-0" type="text" placeholder="Escribe aquí tu mensaje..." v-model="texto" required />
       <button class="btn btn-green z-0" type="submit">Enviar</button>
     </div>
   </form>

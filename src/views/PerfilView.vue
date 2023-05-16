@@ -77,8 +77,6 @@
             @click="seguirAmigo" class="col-2 btn btn-green buttons-up">Seguir</button>
         </template>
       </div>
-
-
     </div>
   </div>
 </template>

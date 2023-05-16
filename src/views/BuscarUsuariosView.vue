@@ -18,7 +18,7 @@
   <div class="fs-2 fw-bold text-center m-4">Buscar usuarios</div>
   <form class="d-flex justify-content-center z-0 w-100" @submit.prevent="buscarUsuarios">
     <div class="input-group w-50">
-      <input class="form-control" type="text" placeholder="Nombre a buscar..." v-model="nombre" required />
+      <input class="form-control z-0" type="text" placeholder="Nombre a buscar..." v-model="nombre" required />
       <button class="btn btn-green z-0" type="submit">Buscar</button>
     </div>
   </form>
