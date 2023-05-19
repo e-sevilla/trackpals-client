@@ -3,14 +3,21 @@
   import { useRouter } from 'vue-router'
   const router = useRouter()
   import BotonUsuarioActual from './components/BotonUsuarioActual.vue';
+  import Alert from './components/Alert.vue';
   
   import variableSesion from "./variablesSesion.js";
   const varSesion = variableSesion();
+
+  import { unref } from "vue";
+  import { alertMessage, alertShow } from "./fetchMethods.js";
 </script>
 
 
 <template>
   <div class="d-flex flex-column expandMinHeight">
+    <Transition class="d-flex justify-content-center w-100">
+      <Alert :alert-show="unref(alertShow)" :alert-message="unref(alertMessage)" @close-alert="alertShow = false"></Alert>
+    </Transition>
     <header class="header d-flex justify-content-between">
       <img class="logo" src="./assets/trackpals_logo.png" @click="router.push((!varSesion.getUsuarioActual()) ? '/' : '/inicio')" />
       <div v-if="!varSesion.getUsuarioActual()">
@@ -74,5 +81,16 @@
     width: 100%;
     background-color: #405039;
     font-size: small;
+  }
+  .v-enter-active {
+    transition: all 0.3s ease-out;
+  }
+  .v-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  .v-enter-from,
+  .v-leave-to {
+    transform: translateY(-20px);
+    opacity: 0;
   }
 </style>

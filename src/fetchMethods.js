@@ -1,3 +1,8 @@
+import { ref } from "vue";
+
+export const alertMessage = ref();
+export const alertShow = ref(false);
+
 export default function fetchMethods() {
 
   const urlBase = "http://localhost:8080";
@@ -11,7 +16,10 @@ export default function fetchMethods() {
         }
         return data;
       })
-      .catch(error => alert(error));
+      .catch(error => {
+        alertMessage.value = error
+        alertShow.value = true
+      });
     return resultado;
   };
 
@@ -31,10 +39,13 @@ export default function fetchMethods() {
         }
         return data;
       })
-      .catch(error => alert(error));
+      .catch(error => {
+        alertMessage.value = error
+        alertShow.value = true
+      });
     return resultado;
   };
 
-  return { urlBase, get, post };
+  return { urlBase, alertMessage, alertShow, get, post };
   
 }

@@ -3,6 +3,7 @@
   import { useRouter } from 'vue-router'
   const router = useRouter()
 
+  import { alertMessage, alertShow } from "../fetchMethods.js";
   import fetchMethods from "../fetchMethods.js";
   const fetchMeths = fetchMethods();
 
@@ -48,7 +49,8 @@
     };
     let usuario = await fetchMeths.post(fetchMeths.urlBase + "/usuarios", usuarioDto);
     if (usuario) {
-      alert("Usuario creado correctamente");
+      alertMessage.value = "Usuario creado correctamente";
+      alertShow.value = true;
       router.push("/login");
     }
   };
