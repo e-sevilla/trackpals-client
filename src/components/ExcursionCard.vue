@@ -24,7 +24,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ excursion.nombre }}</h5>
           <UsuarioMini class="card-text my-3" :medida="'52px'" :foto="excursion.creador.foto" :nombre="excursion.creador.nombre"></UsuarioMini>
-          <div class="card-text">{{ commonMeths.millisToDatestring(excursion.fecha) }} - {{ commonMeths.millisToTimestring(excursion.fecha) }}</div>
+          <div class="card-text fw-bolder">{{ commonMeths.millisToDatestring(excursion.fecha) }} - {{ commonMeths.millisToTimestring(excursion.fecha) }}</div>
           <textarea class="card-text w-100 form-control-plaintext" rows="3" readonly>{{ commonMeths.dirBBDDToDir(excursion.puntoEncuentro) }}</textarea>
         </div>
       </div>

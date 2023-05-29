@@ -80,7 +80,7 @@
             <input class="form-control" type="text" v-model="direccion" />
           </label>
           <label class="form-label my-2">
-            <span class="fw-bolder">Descripcion</span>
+            <span class="fw-bolder">Descripción</span>
             <textarea class="form-control" rows="5" v-model="descripcion"></textarea>
           </label>
         </div>

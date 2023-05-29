@@ -65,8 +65,8 @@
           <div class="fw-bolder mx-2 p-0">Fecha de nacimiento</div>
           <div class=" mx-2 p-0">{{ (perfil.fechaNac) ? commonMeths.millisToDatestring(perfil.fechaNac) : "No hay fecha de nacimiento" }}</div>
           <div class="fw-bolder mt-2 mx-2 p-0">Dirección</div>
-          <div class=" mx-2 p-0">{{ perfil.direccion }}</div>
-          <div class="fw-bolder mt-2 mx-2 p-0">Descripción:</div>
+          <div class=" mx-2 p-0">{{ perfil.direccion || "No hay dirección" }}</div>
+          <div class="fw-bolder mt-2 mx-2 p-0">Descripción</div>
           <textarea class="form-control-plaintext mx-2 p-0" rows="8" readonly>{{ perfil.descripcion || "No hay descripción" }}</textarea>
         </div>
         <!-- Botones -->

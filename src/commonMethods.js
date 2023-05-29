@@ -50,6 +50,7 @@ export default function commonMethods() {
     }
   };
 
+  // Funciones para convertir direcciones
   const htmlToDirBBDD = (html) => {
     return html.split("<")
           .map(v => {
@@ -68,10 +69,19 @@ export default function commonMethods() {
     return dirBBDD.split("::").join("<br/>");
   };
 
+  // Funcion para encriptar la contraseña
+  const encrypt = (contrasenia) => {
+    let sha256 = new jsSHA('SHA-256', 'TEXT');
+    sha256.update(contrasenia);
+    return sha256.getHash("HEX").toUpperCase();
+  }
+
+
   return { 
     datetimeToMillis, millisToDatestring, millisToTimestring,
     encodeFileAsBase64URL, getGpxContent,
-    htmlToDirBBDD, dirBBDDToDir, dirBBDDToDirMap
+    htmlToDirBBDD, dirBBDDToDir, dirBBDDToDirMap,
+    encrypt
   };
 
 }

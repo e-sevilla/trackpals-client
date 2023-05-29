@@ -3,6 +3,7 @@
   import { useRouter } from 'vue-router'
   const router = useRouter()
 
+  import { alertMessage, alertShow } from "../fetchMethods.js";
   import fetchMethods from "../fetchMethods.js";
   const fetchMeths = fetchMethods();
 
@@ -41,22 +42,28 @@
       ruta: null,
       creador: {id: varSesion.getUsuarioActual().id}
     }
-    if (opcionRuta.value == -1) {
-      excursion.ruta = {
-        id: null,
-        nombre: rutaNombre.value,
-        gpx: rutaGpx.value
+    if (excursion.fecha <= Date.parse(new Date())) {
+      alertMessage.value = "La fecha no puede ser anterior a la fecha actual";
+      alertShow.value = true;
+    }
+    else {
+      if (opcionRuta.value == -1) {
+        excursion.ruta = {
+          id: null,
+          nombre: rutaNombre.value,
+          gpx: rutaGpx.value
+        }
       }
-    }
-    else if (opcionRuta.value != -2) {
-      excursion.ruta = { id: listaRutas.value[opcionRuta.value].id }
-    }
-    let excursionesApuntado = await fetchMeths.post(fetchMeths.urlBase + "/excursiones", excursion);
-    if (excursionesApuntado) {
-      let usuarioActual = varSesion.getUsuarioActual();
-      usuarioActual.idsExcursionesApuntado = excursionesApuntado;
-      varSesion.setUsuarioActual(usuarioActual);
-      router.push("/inicio");
+      else if (opcionRuta.value != -2) {
+        excursion.ruta = { id: listaRutas.value[opcionRuta.value].id }
+      }
+      let excursionesApuntado = await fetchMeths.post(fetchMeths.urlBase + "/excursiones", excursion);
+      if (excursionesApuntado) {
+        let usuarioActual = varSesion.getUsuarioActual();
+        usuarioActual.idsExcursionesApuntado = excursionesApuntado;
+        varSesion.setUsuarioActual(usuarioActual);
+        router.push("/inicio");
+      }
     }
   };
 
@@ -151,27 +158,27 @@
         <div class="col-8">
           <div class="row">
             <label class="form-label col-12">
-              Nombre <span class="mandatory">(obligatorio)</span>
+              <span class="fw-bolder">Nombre</span> <span class="mandatory">(obligatorio)</span>
               <input class="form-control" type="text" v-model="nombre" required />
             </label>
             <div class="col-2">
               <div class="form-check form-switch form-control-lg my-3 mx-3">
                 <label class="form-check-label">
                   <input class="form-check-input" type="checkbox" v-model="privada" />
-                  Privada
+                  <span class="fw-bolder">Privada</span>
                 </label>
               </div>
             </div>
             <label class="form-label col-5">
-              Fecha <span class="mandatory">(obligatorio)</span>
+              <span class="fw-bolder">Fecha</span> <span class="mandatory">(obligatorio)</span>
               <input class="form-control" type="date" v-model="fecha" required />
             </label>
             <label class="form-label col-5">
-              Hora <span class="mandatory">(obligatorio)</span>
+              <span class="fw-bolder">Hora</span> <span class="mandatory">(obligatorio)</span>
               <input class="form-control" type="time" v-model="hora" required />
             </label>
             <label class="form-label">
-              Descripcion
+              <span class="fw-bolder">Descripción</span>
               <textarea class="form-control" rows="5" v-model="descripcion"></textarea>
             </label>
             <!-- Direccion y ruta -->
@@ -188,12 +195,12 @@
               <div class="col-7">
                 <br/>
                 <label class="form-label col-12">
-                  Punto de encuentro <span class="mandatory">(obligatorio)</span>
+                  <span class="fw-bolder">Punto de encuentro</span> <span class="mandatory">(obligatorio)</span>
                   <textarea class="form-control" rows="3" :value="commonMeths.dirBBDDToDir(puntoEncuentro)"
                     onkeydown="return false;" style="caret-color: transparent !important;" required></textarea>
                 </label>
                 <label class="form-label col-12">
-                  Ruta
+                  <span class="fw-bolder">Ruta</span>
                   <select class="form-select" v-model="opcionRuta" @change="obtenerRutaSelect">
                     <option value="-2">Sin ruta</option>
                     <option value="-1">Nueva ruta</option>
