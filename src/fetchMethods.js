@@ -5,7 +5,7 @@ export const alertShow = ref(false);
 
 export default function fetchMethods() {
 
-  const urlBase = "http://localhost:8080";
+  const urlBase = "https://trackpals-server-production.up.railway.app";
 
   const get = async (url) => {
     let resultado = await fetch(url)

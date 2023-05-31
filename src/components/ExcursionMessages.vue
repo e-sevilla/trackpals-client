@@ -11,10 +11,13 @@
 
   const mensajes = ref([]);
   const texto = ref();
+  const cargando = ref(false);
 
   const getMensajes = async () => {
+    cargando.value = true;
     mensajes.value = await fetchMeths.get(fetchMeths.urlBase + "/excursiones/" + route.params.id + "/mensaje");
     mensajes.value = mensajes.value.sort((a, b) => b.fecha - a.fecha);
+    cargando.value = false;
   };
 
   const crearMensaje = async () => {
@@ -40,6 +43,9 @@
       <button class="btn btn-green z-0" type="submit">Enviar</button>
     </div>
   </form>
+  <div v-if="cargando" class="d-flex justify-content-center my-5">
+    <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status"></div>
+  </div>
   <div v-if="mensajes.length > 0" class="bg-white bg-opacity-75 rounded-3 p-3">
     <template v-for="mensaje in mensajes">
       <MessageCard :mensaje="mensaje"></MessageCard>
