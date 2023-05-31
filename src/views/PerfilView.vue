@@ -57,7 +57,7 @@
       <div class="d-flex position-relative">
         <!-- Foto -->
         <div class="mx-4 img-cont">
-          <img class="fit-img rounded-circle" :src="perfil.foto || '../../src/assets/user_default_img.png'" />
+          <img class="fit-img rounded-circle" :src="perfil.foto || '/user_default_img.png'" />
         </div>
         <!-- Datos -->
         <div class="row flex-grow-1 d-flex flex-column mx-5">

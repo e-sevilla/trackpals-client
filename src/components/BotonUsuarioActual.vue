@@ -15,7 +15,7 @@
 <template>
   <div class="dropdown">
     <img class="btn dropdown-toggle user-photo" data-bs-toggle="dropdown"
-     :src="varSesion.getUsuarioActual().foto || '../../src/assets/user_default_img.png'">
+     :src="varSesion.getUsuarioActual().foto || '/user_default_img.png'">
     <ul class="dropdown-menu bg-green">
       <li><span class="dropdown-item-text text-center fw-bold fs-5">{{ varSesion.getUsuarioActual().nombre }}</span></li>
       <li><RouterLink to="/mi-perfil" class="dropdown-item">Modificar perfil</RouterLink></li>

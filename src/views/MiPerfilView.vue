@@ -62,7 +62,7 @@
       <div class="d-flex">
         <!-- Foto -->
         <div class="mx-4 img-cont">
-          <img class="fit-img rounded-circle" :src="foto || '../../src/assets/user_default_img.png'" />
+          <img class="fit-img rounded-circle" :src="foto || '/user_default_img.png'" />
           <label class="form-label btn btn-green col-12 my-3">
             Cambiar foto
             <input type="file" accept="image/*" style="display:none" @change="procesarImagen($event)" />

@@ -79,7 +79,7 @@
     <div class="row">
       <!-- Foto -->
       <div class="col-4">
-        <img class="fit-img" :src="excursion.foto || '../../src/assets/excursion_default_img.png'" />
+        <img class="fit-img" :src="excursion.foto || '/excursion_default_img.png'" />
       </div>
       <!-- Datos principales -->
       <div class="col-8">

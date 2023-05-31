@@ -85,10 +85,10 @@
     new L.GPX(gpx, {
         async: true,
         marker_options: {
-          startIconUrl: '../../src/assets/pin-icon-start.png',
-          endIconUrl: '../../src/assets/pin-icon-end.png',
-          shadowUrl: '../../src/assets/pin-shadow.png',
-          wptIconUrls: '../../src/assets/pin-icon-wpt.png'
+          startIconUrl: '/pin-icon-start.png',
+          endIconUrl: '/pin-icon-end.png',
+          shadowUrl: '/pin-shadow.png',
+          wptIconUrls: '/pin-icon-wpt.png'
         }
       }).on('loaded', function(e) {
                 map.fitBounds(e.target.getBounds());
@@ -148,7 +148,7 @@
       <div class="row">
         <!-- Foto -->
         <div class="col-4">
-          <img class="fit-img" :src="foto || '../../src/assets/excursion_default_img.png'" />
+          <img class="fit-img" :src="foto || '/excursion_default_img.png'" />
           <label class="form-label btn btn-green col-12 my-2">
             Cambiar foto
             <input type="file" accept="image/*" style="display:none" @change="procesarImagen($event)" />

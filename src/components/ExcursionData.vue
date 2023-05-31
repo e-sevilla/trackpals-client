@@ -44,10 +44,10 @@
     new L.GPX(gpx, {
         async: true,
         marker_options: {
-          startIconUrl: '../../src/assets/pin-icon-start.png',
-          endIconUrl: '../../src/assets/pin-icon-end.png',
-          shadowUrl: '../../src/assets/pin-shadow.png',
-          wptIconUrls: '../../src/assets/pin-icon-wpt.png'
+          startIconUrl: '/pin-icon-start.png',
+          endIconUrl: '/pin-icon-end.png',
+          shadowUrl: '/pin-shadow.png',
+          wptIconUrls: '/pin-icon-wpt.png'
         }
       }).addTo(map);
   };

@@ -18,7 +18,7 @@
 
 <template>
   <div class="d-flex align-items-center">
-    <img class="user-mini-photo" :src="foto || '../../src/assets/user_default_img.png'">
+    <img class="user-mini-photo" :src="foto || '/user_default_img.png'">
     <div class="fw-bolder">{{ nombre }}</div>
   </div>
 </template>

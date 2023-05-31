@@ -18,7 +18,7 @@
   <router-link :to="'/excursion/' + excursion.id" class="card m-2 w-100 bg-success bg-opacity-25 text-decoration-none equal-height">
     <div class="row g-0">
       <div class="col-md-4">
-        <img class="img-fluid rounded-start equal-height" :src="excursion.foto || '../../src/assets/excursion_default_img.png'">
+        <img class="img-fluid rounded-start equal-height" :src="excursion.foto || '/excursion_default_img.png'">
       </div>
       <div class="col-md-8">
         <div class="card-body">
