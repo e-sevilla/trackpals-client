@@ -106,6 +106,9 @@
       :descripcion="excursion.descripcion" :ruta="excursion.ruta"></ExcursionData>
     <ExcursionMessages v-else></ExcursionMessages>
   </div>
+  <div v-else class="d-flex justify-content-center my-5">
+    <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status"></div>
+  </div>
 </template>
 
 

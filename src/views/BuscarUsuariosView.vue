@@ -7,9 +7,13 @@
 
   const usuarios = ref([]);
   const nombre = ref();
+  const cargando = ref(false);
 
   const buscarUsuarios = async () => {
+    usuarios.value = [];
+    cargando.value = true;
     usuarios.value = await fetchMeths.get(fetchMeths.urlBase + "/usuarios/buscar/" + nombre.value);
+    cargando.value = false;
   };
 </script>
 
@@ -23,6 +27,9 @@
     </div>
   </form>
   <div class="d-flex flex-wrap justify-content-evenly mx-5 my-3">
+    <div v-if="cargando" class="d-flex justify-content-center my-5">
+      <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status"></div>
+    </div>
     <UsuarioCard v-for="usuario in usuarios" :id="usuario.id" :nombre="usuario.nombre" :foto="usuario.foto"></UsuarioCard>
   </div>
 </template>

@@ -43,7 +43,7 @@
     <footer class="footer text-white d-flex flex-column align-items-center p-2">
       <div>Esta web es un proyecto de fin del grado superior de Técnico Superior en Desarrollo de Aplicaciones Multiplataforma</div>
       <div>No es una web real y todos los datos que se muestran son falsos</div>
-      <div>Cualquier parecido con organizaciones o personas reales son pura coincidencia</div>
+      <div>~~ Creado por Elena Sevilla ~~</div>
     </footer>
   </div>
 </template>

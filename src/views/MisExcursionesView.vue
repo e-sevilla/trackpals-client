@@ -32,6 +32,9 @@
         @click="mostrarPasadas = true">Excursiones pasadas</button>
     </div>
     <div class="w-75">
+      <div v-if="excursiones.length == 0" class="d-flex justify-content-center my-5">
+        <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status"></div>
+      </div>
       <template v-for="excursion in excursiones">
         <ExcursionCard :excursion="excursion"
           v-if="!mostrarPasadas && (excursion.fecha >= Date.parse(new Date))"></ExcursionCard>
