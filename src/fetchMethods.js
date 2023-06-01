@@ -5,7 +5,7 @@ export const alertShow = ref(false);
 
 export default function fetchMethods() {
 
-  const urlBase = "https://trackpals-server-production.up.railway.app";
+  const urlBase = import.meta.env.VITE_URL_SERVER;
 
   const get = async (url) => {
     let resultado = await fetch(url)

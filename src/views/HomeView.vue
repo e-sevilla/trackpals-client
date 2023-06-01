@@ -11,7 +11,6 @@
     <div>Siempre tendrás a alguien para acompañarte en esa excursión que estabas planeando.</div>
     <div>Ponte en contacto con otros apasionados del senderismo y realizad rutas inolvidables.</div>
     <br/>
-    <br/>
     <img src="../assets/landscape_home_default.png" />
   </div>
 </template>

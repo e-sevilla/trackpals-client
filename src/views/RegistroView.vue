@@ -61,26 +61,28 @@
 
 
 <template>
-  <div class="fs-2 fw-bold text-center m-3">Registro</div>
-  <div class="d-flex justify-content-center my-5">
-    <form class="d-flex flex-column bg-warning bg-opacity-25 rounded-3 px-4 py-2 w-25" @submit.prevent="registrar">
-      <label class="form-label my-2">
-        <div class="my-2 fw-bolder">Usuario</div>
-        <input type="text" class="form-control" id="nombre" v-model="nombre"
-          pattern="^([A-z0-9_.-])*[^\s]\1*$" :oninput="checkNombre" required />
-      </label>
-      <label class="form-label my-2">
-        <div class="my-2 fw-bolder">Email</div>
-        <input type="text" class="form-control" id="email" v-model="email"
-          pattern="^([A-z0-9]+(?:[._-][A-z0-9]+)*)@([A-z0-9]+(?:[.-][A-z0-9]+)*\.[A-z]{2,})$" :oninput="checkEmail" required />
-      </label>
-      <label class="form-label my-3">
-        <div class="my-2 fw-bolder">Contraseña</div>
-        <input type="password" class="form-control" id="contrasenia" v-model="contrasenia"
-          pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{7,})\S$" :oninput="checkContrasenia" required />
-      </label>
-      <button class="btn btn-green my-4" type="submit">Crear cuenta</button>
-    </form>
+  <div>
+    <div class="fs-2 fw-bold text-center m-3">Registro</div>
+    <div class="d-flex justify-content-center my-5">
+      <form class="d-flex flex-column bg-warning bg-opacity-25 rounded-3 px-4 py-2 w-25" @submit.prevent="registrar">
+        <label class="form-label my-2">
+          <div class="my-2 fw-bolder">Usuario</div>
+          <input type="text" class="form-control" id="nombre" v-model="nombre"
+            pattern="^([A-z0-9_.-])*[^\s]\1*$" :oninput="checkNombre" required />
+        </label>
+        <label class="form-label my-2">
+          <div class="my-2 fw-bolder">Email</div>
+          <input type="text" class="form-control" id="email" v-model="email"
+            pattern="^([A-z0-9]+(?:[._-][A-z0-9]+)*)@([A-z0-9]+(?:[.-][A-z0-9]+)*\.[A-z]{2,})$" :oninput="checkEmail" required />
+        </label>
+        <label class="form-label my-3">
+          <div class="my-2 fw-bolder">Contraseña</div>
+          <input type="password" class="form-control" id="contrasenia" v-model="contrasenia"
+            pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{7,})\S$" :oninput="checkContrasenia" required />
+        </label>
+        <button class="btn btn-green my-4" type="submit">Crear cuenta</button>
+      </form>
+    </div>
   </div>
 </template>
 

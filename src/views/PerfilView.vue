@@ -52,31 +52,36 @@
 
 
 <template>
-  <div v-if="perfil" class="m-4 p-4 bg-success bg-opacity-25 rounded-3">
-    <div>
-      <div class="d-flex position-relative">
-        <!-- Foto -->
-        <div class="mx-4 img-cont">
-          <img class="fit-img rounded-circle" :src="perfil.foto || '/user_default_img.png'" />
+  <div>
+    <div v-if="perfil" class="m-4 p-4 bg-success bg-opacity-25 rounded-3">
+      <div>
+        <div class="d-flex position-relative">
+          <!-- Foto -->
+          <div class="mx-4 img-cont">
+            <img class="fit-img rounded-circle" :src="perfil.foto || '/user_default_img.png'" />
+          </div>
+          <!-- Datos -->
+          <div class="row flex-grow-1 d-flex flex-column mx-5">
+            <h3 class="my-3 mx-2 p-0">{{ perfil.nombre }}</h3>
+            <div class="fw-bolder mx-2 p-0">Fecha de nacimiento</div>
+            <div class=" mx-2 p-0">{{ (perfil.fechaNac) ? commonMeths.millisToDatestring(perfil.fechaNac) : "No hay fecha de nacimiento" }}</div>
+            <div class="fw-bolder mt-2 mx-2 p-0">Dirección</div>
+            <div class=" mx-2 p-0">{{ perfil.direccion || "No hay dirección" }}</div>
+            <div class="fw-bolder mt-2 mx-2 p-0">Descripción</div>
+            <textarea class="form-control-plaintext mx-2 p-0" rows="8" readonly>{{ perfil.descripcion || "No hay descripción" }}</textarea>
+          </div>
+          <!-- Botones -->
+          <template v-if="id != usuarioActual.id">
+            <button v-if="usuarioActual.idsAmigos.includes(id)"
+              @click="quitarAmigo" class="col-2 btn btn-red buttons-up">Dejar de seguir</button>
+            <button v-else
+              @click="seguirAmigo" class="col-2 btn btn-green buttons-up">Seguir</button>
+          </template>
         </div>
-        <!-- Datos -->
-        <div class="row flex-grow-1 d-flex flex-column mx-5">
-          <h3 class="my-3 mx-2 p-0">{{ perfil.nombre }}</h3>
-          <div class="fw-bolder mx-2 p-0">Fecha de nacimiento</div>
-          <div class=" mx-2 p-0">{{ (perfil.fechaNac) ? commonMeths.millisToDatestring(perfil.fechaNac) : "No hay fecha de nacimiento" }}</div>
-          <div class="fw-bolder mt-2 mx-2 p-0">Dirección</div>
-          <div class=" mx-2 p-0">{{ perfil.direccion || "No hay dirección" }}</div>
-          <div class="fw-bolder mt-2 mx-2 p-0">Descripción</div>
-          <textarea class="form-control-plaintext mx-2 p-0" rows="8" readonly>{{ perfil.descripcion || "No hay descripción" }}</textarea>
-        </div>
-        <!-- Botones -->
-        <template v-if="id != usuarioActual.id">
-          <button v-if="usuarioActual.idsAmigos.includes(id)"
-            @click="quitarAmigo" class="col-2 btn btn-red buttons-up">Dejar de seguir</button>
-          <button v-else
-            @click="seguirAmigo" class="col-2 btn btn-green buttons-up">Seguir</button>
-        </template>
       </div>
+    </div>
+    <div v-else class="d-flex justify-content-center my-5">
+      <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status"></div>
     </div>
   </div>
 </template>

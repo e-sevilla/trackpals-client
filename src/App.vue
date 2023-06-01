@@ -27,7 +27,7 @@
           <RouterLink to="/login" class="btn btn-yellow btn-lg m-4"
             v-if="router.currentRoute.value.path != '/login'">Login</RouterLink>
           </nav>
-        </div>
+      </div>
       <div v-else class="d-flex">
         <RouterLink to="/excursion/nueva" class="btn btn-yellow btn-lg m-4"
           v-if="router.currentRoute.value.path != '/excursion/nueva'">Crear excursión</RouterLink>
@@ -37,7 +37,11 @@
 
     <!-- Componente en el que se carga la vista de la ruta correspondiente -->
     <div class="main">
-      <RouterView />
+      <RouterView v-slot="{ Component }">
+        <Transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
     </div>
     
     <footer class="footer text-white d-flex flex-column align-items-center p-2">
@@ -82,6 +86,7 @@
     background-color: #405039;
     font-size: small;
   }
+
   .v-enter-active {
     transition: all 0.3s ease-out;
   }
@@ -91,6 +96,15 @@
   .v-enter-from,
   .v-leave-to {
     transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+  .fade-enter-from,
+  .fade-leave-to {
     opacity: 0;
   }
 </style>
